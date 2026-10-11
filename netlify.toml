@@ -1,0 +1,9 @@
+[build]
+  command = "if [ ! -d flutter ]; then git clone https://github.com/flutter/flutter.git -b stable --depth 1; fi && flutter/bin/flutter config --no-analytics --enable-web && flutter/bin/flutter pub get && flutter/bin/flutter build web --release"
+  publish = "build/web"
+
+# SPA fallback supaya refresh / buka link langsung tidak 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
